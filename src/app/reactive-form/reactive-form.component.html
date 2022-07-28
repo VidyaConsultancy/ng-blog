@@ -1,6 +1,10 @@
 <div class="container">
   <h2>Reactive Forms Component</h2>
-  <form class="blogs-form" (ngSubmit)="handleFormSubmit($event)">
+  <form
+    class="blogs-form"
+    (ngSubmit)="handleFormSubmit($event)"
+    [formGroup]="blogFormGroup"
+  >
     <div class="form-group">
       <label for="title">Blog Title</label>
       <input
@@ -9,9 +13,10 @@
         name="title"
         id="title"
         placeholder="Give a blog title"
-        [formControl]="blogTitle"
+        formControlName="blogTitle"
       />
-      <small *ngIf="blogTitle.touched && blogTitle.dirty && blogTitle.invalid">Blog title is required</small>
+      <!-- <small *ngIf="blogFormGroup.controls['blogTitle']?.touched && blogFormGroup.get('blogTitle')?.dirty && blogFormGroup.get('blogTitle')?.invalid">Blog title is required</small> -->
+      <small *ngIf="blogErrors['blogTitle']">{{ blogErrors['blogTitle'] }}</small>
     </div>
     <div class="form-group">
       <label for="summary">Blog Summary</label>
@@ -23,11 +28,13 @@
         id="summary"
         placeholder="Write the blog description"
         class="form-control"
-        [formControl]="blogDescription"
+        formControlName="blogDescription"
       ></textarea>
     </div>
     <div class="form-group">
-      <button type="submit" class="btn" [disabled]="blogDescription.invalid || blogTitle.invalid">Submit</button>
+      <button type="submit" class="btn" [disabled]="blogFormGroup.invalid">
+        Submit
+      </button>
     </div>
   </form>
 </div>

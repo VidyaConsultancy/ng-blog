@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -7,25 +7,68 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./reactive-form.component.css'],
 })
 export class ReactiveFormComponent implements OnInit {
-  blogTitle: FormControl;
-  blogDescription: FormControl;
+  blogFormGroup: FormGroup;
+  blogErrors: {
+    [key: string]: string | null;
+  } = {
+    blogTitle: null,
+    blogDescription: null,
+  };
+  blogFormGroupMsgs: {
+    [key: string]: {
+      [key: string]: string
+    }
+  } = {
+    blogTitle: {
+      required: 'Blog title is required',
+      maxLength: 'Blog title should not be more than 30 char long'
+    },
+  };
+  // blogTitle: FormControl;
+  // blogDescription: FormControl;
 
   constructor() {
-    this.blogTitle = new FormControl("", [Validators.required, Validators.maxLength(30)]);
-    this.blogDescription = new FormControl("", [Validators.required, Validators.minLength(50), Validators.maxLength(500)]);
-    console.log(this.blogTitle)
+    this.blogFormGroup = new FormGroup({
+      blogTitle: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(30),
+      ]),
+      blogDescription: new FormControl('', [
+        Validators.required,
+        Validators.minLength(50),
+        Validators.maxLength(500),
+      ]),
+    });
+    // this.blogTitle = new FormControl("", [Validators.required, Validators.maxLength(30)]);
+    // this.blogDescription = new FormControl("", [Validators.required, Validators.minLength(50), Validators.maxLength(500)]);
+    console.log(this.blogFormGroup);
 
-    this.blogTitle.valueChanges.subscribe(value => {
-      console.log(value, this.blogTitle)
-    })
+    this.blogFormGroup.valueChanges.subscribe(() => {
+      const controls = this.blogFormGroup.controls;
+      for (const key in controls) {
+        if (controls[key].dirty && controls[key].touched) {
+          const errors = controls[key].errors;
+          if (errors) {
+            for (const validationKey in errors) {
+              this.blogErrors[key] = this.blogFormGroupMsgs[key][validationKey];
+            }
+          }
+        }
+      }
+    });
+
+    // this.blogTitle.valueChanges.subscribe(value => {
+    //   console.log(value, this.blogTitle)
+    // })
   }
 
   ngOnInit(): void {}
 
   handleFormSubmit(event: any) {
-    console.log(event);
-    event.preventDefault();
+    // console.log(event);
+    // event.preventDefault();
     // alert('Form submitted');
-    console.log('form values', this.blogTitle.value, this.blogDescription.value);
+    // console.log('form values', this.blogTitle.value, this.blogDescription.value);
+    console.log('form values', this.blogFormGroup.value);
   }
 }
