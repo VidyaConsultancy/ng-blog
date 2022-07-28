@@ -1,16 +1,36 @@
 <div class="container">
   <h2 class="page-title" [title]="title">{{ title }}</h2>
-  <form class="blogs-form">
+  <form class="blogs-form" (ngSubmit)="handleFormSubmit($event)">
     <div class="form-group">
       <label for="title">Blog Title</label>
-      <input type="text" class="form-control" name="title" id="title" placeholder="Give a blog title" [(ngModel)]="blogTitle">
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        id="title"
+        placeholder="Give a blog title"
+        [(ngModel)]="blogTitle"
+      />
     </div>
     <div class="form-group">
       <label for="summary">Blog Summary</label>
-      <textarea name="summary" id="" cols="30" rows="10" id="summary" placeholder="Write the blog description" class="form-control" [(ngModel)]="blogDescription"></textarea>
+      <textarea
+        name="summary"
+        id=""
+        cols="30"
+        rows="10"
+        id="summary"
+        placeholder="Write the blog description"
+        class="form-control"
+        [(ngModel)]="blogDescription"
+      ></textarea>
     </div>
     <div class="form-group">
-      <button type="submit" class="btn" (click)="handleFormSubmit(blogTitle)">Submit</button>
+      <button type="submit" class="btn">Submit</button>
     </div>
   </form>
 </div>
+
+<form action="">
+  <input type="text" [(ngModel)]="user.name" name="username"/><input type="text" [(ngModel)]="user.email" name="useremail"/><input type="text" [(ngModel)]="user.password" name="userpassword" />
+</form>
