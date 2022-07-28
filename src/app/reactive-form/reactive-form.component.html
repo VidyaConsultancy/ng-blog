@@ -1,1 +1,33 @@
-<p>reactive-form works!</p>
+<div class="container">
+  <h2>Reactive Forms Component</h2>
+  <form class="blogs-form" (ngSubmit)="handleFormSubmit($event)">
+    <div class="form-group">
+      <label for="title">Blog Title</label>
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        id="title"
+        placeholder="Give a blog title"
+        [formControl]="blogTitle"
+      />
+      <small *ngIf="blogTitle.touched && blogTitle.dirty && blogTitle.invalid">Blog title is required</small>
+    </div>
+    <div class="form-group">
+      <label for="summary">Blog Summary</label>
+      <textarea
+        name="summary"
+        id=""
+        cols="30"
+        rows="10"
+        id="summary"
+        placeholder="Write the blog description"
+        class="form-control"
+        [formControl]="blogDescription"
+      ></textarea>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn" [disabled]="blogDescription.invalid || blogTitle.invalid">Submit</button>
+    </div>
+  </form>
+</div>
