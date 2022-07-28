@@ -7,6 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = "Create a Blog";
-  blogTitle: string = '';
+  blogTitle: string = 'Init value';
   blogDescription: string = '';
+
+  handleFormSubmit(str: string) {
+    // alert('Form submitted');
+    console.log('form values', str, this.blogTitle, this.blogDescription);
+  }
 }

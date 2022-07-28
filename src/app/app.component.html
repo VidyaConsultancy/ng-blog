@@ -1,16 +1,16 @@
 <div class="container">
-  <h2>{{ title }}</h2>
-  <form action="" class="blogs-form">
+  <h2 class="page-title" [title]="title">{{ title }}</h2>
+  <form class="blogs-form">
     <div class="form-group">
       <label for="title">Blog Title</label>
       <input type="text" class="form-control" name="title" id="title" placeholder="Give a blog title" [(ngModel)]="blogTitle">
     </div>
     <div class="form-group">
       <label for="summary">Blog Summary</label>
-      <textarea name="summary" id="" cols="30" rows="10" id="summary" placeholder="Write the blog description"></textarea>
+      <textarea name="summary" id="" cols="30" rows="10" id="summary" placeholder="Write the blog description" class="form-control" [(ngModel)]="blogDescription"></textarea>
     </div>
     <div class="form-group">
-      <button type="submit">Submit</button>
+      <button type="submit" class="btn" (click)="handleFormSubmit(blogTitle)">Submit</button>
     </div>
   </form>
 </div>
