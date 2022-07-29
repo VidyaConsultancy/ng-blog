@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { UntypedFormControl, Validators, UntypedFormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -7,7 +7,7 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
   styleUrls: ['./reactive-form.component.css'],
 })
 export class ReactiveFormComponent implements OnInit {
-  blogFormGroup: FormGroup;
+  blogFormGroup: UntypedFormGroup;
   blogErrors: {
     [key: string]: string | null;
   } = {
@@ -28,12 +28,12 @@ export class ReactiveFormComponent implements OnInit {
   // blogDescription: FormControl;
 
   constructor() {
-    this.blogFormGroup = new FormGroup({
-      blogTitle: new FormControl('', [
+    this.blogFormGroup = new UntypedFormGroup({
+      blogTitle: new UntypedFormControl('', [
         Validators.required,
         Validators.maxLength(30),
       ]),
-      blogDescription: new FormControl('', [
+      blogDescription: new UntypedFormControl('', [
         Validators.required,
         Validators.minLength(50),
         Validators.maxLength(500),
