@@ -16,7 +16,9 @@
         formControlName="blogTitle"
       />
       <!-- <small *ngIf="blogFormGroup.controls['blogTitle']?.touched && blogFormGroup.get('blogTitle')?.dirty && blogFormGroup.get('blogTitle')?.invalid">Blog title is required</small> -->
-      <small *ngIf="blogErrors['blogTitle']">{{ blogErrors['blogTitle'] }}</small>
+      <small *ngIf="blogErrors['blogTitle']">{{
+        blogErrors["blogTitle"]
+      }}</small>
     </div>
     <div class="form-group">
       <label for="summary">Blog Summary</label>
@@ -36,5 +38,14 @@
         Submit
       </button>
     </div>
+  </form>
+
+  <form action="">
+    <h3>Form Array</h3>
+    <div class="form-group" *ngFor="let field of formArrayFields">
+      <label for="">Field name</label><input type="text" placeholder="form array field" class="form-control" name="field" [formControl]="field" />
+    </div>
+    <button type="button" (click)="addNewField()">Add new field</button>
+    <button type="submit" (click)="handleFormSubmit($event)">Submit</button>
   </form>
 </div>

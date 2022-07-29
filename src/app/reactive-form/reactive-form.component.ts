@@ -1,5 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormControl, Validators, UntypedFormGroup } from '@angular/forms';
+import {
+  Validators,
+  UntypedFormGroup,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  FormArray,
+} from '@angular/forms';
+
+interface LoginForm {
+  email: FormControl<string>;
+  password?: FormControl<string>;
+}
+
+interface BlogForm {
+  blogTitle: FormControl<string>;
+  blogDescription: FormControl<string>;
+}
 
 @Component({
   selector: 'app-reactive-form',
@@ -7,7 +24,8 @@ import { UntypedFormControl, Validators, UntypedFormGroup } from '@angular/forms
   styleUrls: ['./reactive-form.component.css'],
 })
 export class ReactiveFormComponent implements OnInit {
-  blogFormGroup: UntypedFormGroup;
+  formArray: FormArray;
+  blogFormGroup: FormGroup;
   blogErrors: {
     [key: string]: string | null;
   } = {
@@ -16,28 +34,37 @@ export class ReactiveFormComponent implements OnInit {
   };
   blogFormGroupMsgs: {
     [key: string]: {
-      [key: string]: string
-    }
+      [key: string]: string;
+    };
   } = {
     blogTitle: {
       required: 'Blog title is required',
-      maxLength: 'Blog title should not be more than 30 char long'
+      maxLength: 'Blog title should not be more than 30 char long',
     },
   };
+
+  login = new FormGroup<LoginForm>({
+    email: new FormControl('', { nonNullable: true }),
+    password: new FormControl('', { nonNullable: true }),
+  });
+
   // blogTitle: FormControl;
   // blogDescription: FormControl;
 
-  constructor() {
-    this.blogFormGroup = new UntypedFormGroup({
-      blogTitle: new UntypedFormControl('', [
-        Validators.required,
-        Validators.maxLength(30),
-      ]),
-      blogDescription: new UntypedFormControl('', [
-        Validators.required,
-        Validators.minLength(50),
-        Validators.maxLength(500),
-      ]),
+  constructor(private fb: FormBuilder) {
+    this.formArray = new FormArray([new FormControl('')]);
+    // this.formArray = this.fb.array();
+    // [{city: 'Mumbai', pincode: 400078}, {city: 'Delhi', pincode: 110001}, {city: 'Chennai', pincode: 2100001}]
+    this.blogFormGroup = this.fb.group({
+      blogTitle: ['', [Validators.required, Validators.maxLength(30)]],
+      blogDescription: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(50),
+          Validators.maxLength(500),
+        ],
+      ],
     });
     // this.blogTitle = new FormControl("", [Validators.required, Validators.maxLength(30)]);
     // this.blogDescription = new FormControl("", [Validators.required, Validators.minLength(50), Validators.maxLength(500)]);
@@ -64,11 +91,20 @@ export class ReactiveFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  get formArrayFields() {
+    return this.formArray.controls as Array<FormControl>;
+  }
+
+  addNewField() {
+    this.formArray.push(new FormControl(''));
+  }
+
   handleFormSubmit(event: any) {
     // console.log(event);
     // event.preventDefault();
     // alert('Form submitted');
     // console.log('form values', this.blogTitle.value, this.blogDescription.value);
     console.log('form values', this.blogFormGroup.value);
+    console.log('form array values', this.formArray.value);
   }
 }
