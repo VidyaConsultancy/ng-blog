@@ -1,5 +1,7 @@
-<div class="todo" *ngIf="todo">
+<div class="todo" *ngIf="todo" #todoItem>
   <h4>{{ todo.title }}</h4>
   <span>{{ todo.isCompleted ? "Completed" : "Pending" }}</span>
   <button (click)="deleteTodo()">Delete</button>
+  <a [routerLink]="[todo.id]">View</a>
+  <button (click)="handleTodoView()">View</button>
 </div>

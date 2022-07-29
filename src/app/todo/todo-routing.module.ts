@@ -8,12 +8,16 @@ const routes: Routes = [
     component: TodoComponent,
     children: [{ path: 'detail', component: DetailComponent }],
   },
+  {
+    path: ":id",
+    component: DetailComponent
+  }
 ];
 // app routing moudle 'todo'
 // todo routing module ''
-// baseUrl/todo
-// baseUrl/todo/detail
-
+// baseUrl/todo?query=value
+// baseUrl/todo/detail?query=value
+// baseUrl/todo/todoId?query=value where todoId could be any valid id i.e. 1, 2, 3 etc
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
