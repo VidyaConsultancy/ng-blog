@@ -47,6 +47,10 @@ export class TodoService {
     return this.message$.asObservable();
   }
 
+  public getStaticMessage() {
+    return this.message;
+  }
+
   public setMessage(msg: string): void {
     this.message$.next(msg);
     this.message = msg;
