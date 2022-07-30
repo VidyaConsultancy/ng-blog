@@ -1,1 +1,4 @@
-<p>detail works!</p>
+<div class="container" *ngIf="todo">
+  <h2>Todo Details</h2>
+  <app-item [todo]="todo" [isDetailPage]="true" (onDelete)="deleteTodo($event)"></app-item>
+</div>

@@ -5,8 +5,8 @@ export class Todo {
   createdDate: Date;
   dueDate: Date;
 
-  constructor(title: string, isComplelted: boolean = false, dueDate: Date = new Date()) {
-    this.id = Math.round(Math.random() * 10000);
+  constructor(id: number, title: string, isComplelted: boolean = false, dueDate: Date = new Date()) {
+    this.id = id;
     this.title = title;
     this.isCompleted = isComplelted;
     this.dueDate = dueDate;

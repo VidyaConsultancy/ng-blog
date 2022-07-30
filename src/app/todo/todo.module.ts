@@ -22,6 +22,7 @@ import { DetailComponent } from './detail/detail.component';
   imports: [
     CommonModule,
     TodoRoutingModule
-  ]
+  ],
+  // providers: [ServiceName]
 })
 export class TodoModule { }

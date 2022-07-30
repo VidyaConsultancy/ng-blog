@@ -1,30 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 
+import { TodoService } from './services/todo.service';
 import { Todo } from './models/todo/todo';
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css'],
+  // providers: [ServiceName]
 })
 export class TodoComponent implements OnInit {
-  todos: Todo[] = [];
+  todos: Todo[];
 
-  constructor() {
-    for (const tech of [
-      'Nodejs',
-      'Angular',
-      'Reactjs',
-      'React Native',
-      'FrontEnd Dev',
-    ]) {
-      this.todos.push(new Todo(`Learn ${tech}`));
-    }
+  constructor(private todoService: TodoService) {}
+
+  ngOnInit(): void {
+    this.todos = this.todoService.getAllTodos();
   }
 
-  ngOnInit(): void {}
-
   handleDeleteTodo(id: number) {
-    this.todos = this.todos.filter((todo) => todo.id !== id);
+    this.todoService.deleteTodo(id);
+    this.todos = this.todoService.getAllTodos();
   }
 }

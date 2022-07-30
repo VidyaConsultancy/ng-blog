@@ -2,6 +2,6 @@
   <h4>{{ todo.title }}</h4>
   <span>{{ todo.isCompleted ? "Completed" : "Pending" }}</span>
   <button (click)="deleteTodo()">Delete</button>
-  <a [routerLink]="[todo.id]">View</a>
-  <button (click)="handleTodoView()">View</button>
+  <a [routerLink]="[todo.id]" *ngIf="!isDetailPage">View</a>
+  <button (click)="handleTodoView()" *ngIf="!isDetailPage">View</button>
 </div>
