@@ -7,6 +7,7 @@ import {
   FormGroup,
   FormArray,
 } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 interface LoginForm {
   email: FormControl<string>;
@@ -69,6 +70,10 @@ export class ReactiveFormComponent implements OnInit {
     // this.blogTitle = new FormControl("", [Validators.required, Validators.maxLength(30)]);
     // this.blogDescription = new FormControl("", [Validators.required, Validators.minLength(50), Validators.maxLength(500)]);
     console.log(this.blogFormGroup);
+
+    const formGroups = {
+      valueChanges: Observable
+    }
 
     this.blogFormGroup.valueChanges.subscribe(() => {
       const controls = this.blogFormGroup.controls;
