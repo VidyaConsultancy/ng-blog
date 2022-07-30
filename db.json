@@ -1,0 +1,25 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Learn Nodejs",
+      "isCompleted": false,
+      "createdDate": "2022-07-29",
+      "dueDate": "2022-07-31"
+    },
+    {
+      "id": 2,
+      "title": "Learn Angular",
+      "isCompleted": false,
+      "createdDate": "2022-07-29",
+      "dueDate": "2022-07-31"
+    },
+    {
+      "id": 3,
+      "title": "Learn Reactjs",
+      "isCompleted": false,
+      "createdDate": "2022-07-29",
+      "dueDate": "2022-07-31"
+    }
+  ]
+}

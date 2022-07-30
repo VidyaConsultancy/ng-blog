@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { TodoService } from './services/todo.service';
 import { Todo } from './models/todo/todo';
@@ -10,16 +11,18 @@ import { Todo } from './models/todo/todo';
   // providers: [ServiceName]
 })
 export class TodoComponent implements OnInit {
-  todos: Todo[];
+  // todos: Todo[];
+  todos$: Observable<Todo[]>;
 
   constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
-    this.todos = this.todoService.getAllTodos();
+    // this.todoService.fetchAllTodos();
+    this.todos$ = this.todoService.getAllTodos();
   }
 
   handleDeleteTodo(id: number) {
     this.todoService.deleteTodo(id);
-    this.todos = this.todoService.getAllTodos();
+    // this.todos = this.todoService.getAllTodos();
   }
 }

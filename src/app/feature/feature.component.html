@@ -1,1 +1,6 @@
 <p>feature works!</p>
+
+<p>{{ msg$ | async }}</p>
+
+<input type="text" name="msg" [(ngModel)]="msg">
+<button (click)="setMessage()">Set a new message</button>

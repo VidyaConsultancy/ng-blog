@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { TodoService } from './todo/services/todo.service';
 
 class CUser implements IUser {
   name: string;
@@ -35,6 +36,10 @@ export class AppComponent implements OnInit {
   blogDescription: string = '';
   user: CUser = new CUser('John Doe', 'johndoe@mailinator.com', '123456');
   observerable: Observable<number>;
+
+  constructor(private todoService: TodoService) {
+    this.todoService.fetchAllTodos();
+  }
 
   ngOnInit() {
     this.observerable = new Observable((subscriber) => {
