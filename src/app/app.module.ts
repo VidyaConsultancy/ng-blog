@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 // import { RouterModule, Routes} from "@angular/router";
 // import { MatButtonModule } from "@angular/material/button";
 
@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import { NavbarComponent } from './common/navbar/navbar.component';
+import { ErrorHandlerInterceptor } from './interceptors/error-handler.interceptor';
 
 // const routes: Routes = [
 //   { path: 'watch/first', component: AppComponent },
@@ -28,7 +29,9 @@ import { NavbarComponent } from './common/navbar/navbar.component';
     // RouterModule.forRoot(routes),
   ],
   exports: [],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, useClass: ErrorHandlerInterceptor, multi: true
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
