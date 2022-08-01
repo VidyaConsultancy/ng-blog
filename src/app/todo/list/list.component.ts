@@ -7,7 +7,7 @@ import { Todo } from '../models/todo/todo';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
-  @Input('todos-list') todos: Todo[] | null;
+  @Input('todos-list') todos!: Todo[] | null;
   @Output('onDeleteTodo') onDeleteTodoEvent: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() {}

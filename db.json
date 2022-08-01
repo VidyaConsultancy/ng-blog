@@ -1,25 +1,18 @@
 {
   "todos": [
     {
-      "id": 1,
-      "title": "Learn Nodejs",
+      "id": 11,
+      "title": "Learn MEAN stack",
       "isCompleted": false,
-      "createdDate": "2022-07-29",
-      "dueDate": "2022-07-31"
+      "dueDate": "2022-08-01T04:52:06.044Z",
+      "createdDate": "2022-08-01T04:52:06.044Z"
     },
     {
-      "id": 2,
-      "title": "Learn Angular",
+      "id": 12,
+      "title": "Learn MEAN stack",
       "isCompleted": false,
-      "createdDate": "2022-07-29",
-      "dueDate": "2022-07-31"
-    },
-    {
-      "id": 3,
-      "title": "Learn Reactjs",
-      "isCompleted": false,
-      "createdDate": "2022-07-29",
-      "dueDate": "2022-07-31"
+      "dueDate": "2022-08-01T04:57:42.228Z",
+      "createdDate": "2022-08-01T04:57:42.228Z"
     }
   ]
 }

@@ -8,7 +8,7 @@ import { TodoService } from 'src/app/todo/services/todo.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  msg: string;
+  msg!: string;
 
   constructor(private todoService: TodoService) {
     this.todoService.getMessage().subscribe((msg) => (this.msg = msg));

@@ -12,7 +12,7 @@ interface SignInForm {
   styleUrls: ['./signin.component.css'],
 })
 export class SigninComponent implements OnInit {
-  signInForm: FormGroup<SignInForm>;
+  signInForm!: FormGroup<SignInForm>;
 
   constructor(private fb: FormBuilder) {
     this.createSignInForm();

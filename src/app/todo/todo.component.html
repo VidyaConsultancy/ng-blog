@@ -2,6 +2,7 @@
   <menu>
     <li><a routerLink="detail">Detail</a></li>
   </menu>
+  <button (click)="addTodo()">Add Todo</button>
   <div class="todo-container">
     <app-list [todos-list]="todos$ | async" (onDeleteTodo)="handleDeleteTodo($event)"></app-list>
   </div>

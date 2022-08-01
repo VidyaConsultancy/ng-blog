@@ -10,7 +10,7 @@ import { TodoService } from '../services/todo.service';
   styleUrls: ['./detail.component.css'],
 })
 export class DetailComponent implements OnInit, OnDestroy {
-  subscription: Subscription;
+  subscription!: Subscription;
   todo: Todo | undefined;
 
   constructor(

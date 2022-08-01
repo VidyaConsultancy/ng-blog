@@ -3,4 +3,4 @@
 <p>{{ msg$ | async }}</p>
 
 <input type="text" name="msg" [(ngModel)]="msg">
-<button (click)="setMessage()">Set a new message</button>
+<button mat-stroked-button (click)="setMessage()" color="primary">Set a new message</button>

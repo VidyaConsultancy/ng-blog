@@ -8,10 +8,10 @@ import { Todo } from '../models/todo/todo';
   styleUrls: ['./item.component.css'],
 })
 export class ItemComponent implements OnInit, AfterViewInit, OnDestroy, OnChanges {
-  @Input() todo: Todo;
-  @Input('isDetailPage') isDetailPage: boolean;
+  @Input() todo!: Todo;
+  @Input('isDetailPage') isDetailPage!: boolean;
   @Output('onDelete') onDeleteTodo: EventEmitter<number>;
-  @ViewChild('todoItem') todoItemElementRef: ElementRef;
+  @ViewChild('todoItem') todoItemElementRef!: ElementRef;
 
   constructor(private router: Router) {
     this.onDeleteTodo = new EventEmitter<number>();

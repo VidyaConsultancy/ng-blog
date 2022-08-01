@@ -35,7 +35,8 @@ export class AppComponent implements OnInit {
   blogTitle: string = 'Init value';
   blogDescription: string = '';
   user: CUser = new CUser('John Doe', 'johndoe@mailinator.com', '123456');
-  observerable: Observable<number>;
+  observerable!: Observable<number>;
+  flag: boolean = false;
 
   constructor(private todoService: TodoService) {
     this.todoService.fetchAllTodos();

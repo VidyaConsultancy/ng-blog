@@ -68,6 +68,14 @@ export class TodoService {
   }
 
   public deleteTodo(id: number) {
+    this.http.delete(`${this.baseAPIUrl}/${id}`).subscribe(() => {
+      const todos = this.todos$.getValue();
+      const updatedTodos = todos.filter(todo => todo.id !== id); // business logic
+      this.todos$.next(updatedTodos);
+      // or
+      // this.fetchAllTodos();
+      // or to reload the page
+    })
     // this.todos = this.todos.filter((todo) => todo.id !== id);
   }
 
@@ -75,5 +83,13 @@ export class TodoService {
     // const todo = this.todos.find((todo) => todo.id === id);
     // return todo;
     return undefined;
+  }
+
+  public createTodo(todo: Partial<Todo>) {
+    this.http.post<Todo>(this.baseAPIUrl, todo).subscribe((response) => {
+      const todos = this.todos$.getValue();
+      const updatedTodos = [...todos, response];
+      this.todos$.next(updatedTodos);
+    })
   }
 }

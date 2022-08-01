@@ -12,7 +12,7 @@ import { Todo } from './models/todo/todo';
 })
 export class TodoComponent implements OnInit {
   // todos: Todo[];
-  todos$: Observable<Todo[]>;
+  todos$!: Observable<Todo[]>;
 
   constructor(private todoService: TodoService) {}
 
@@ -24,5 +24,9 @@ export class TodoComponent implements OnInit {
   handleDeleteTodo(id: number) {
     this.todoService.deleteTodo(id);
     // this.todos = this.todoService.getAllTodos();
+  }
+
+  addTodo() {
+    this.todoService.createTodo(new Todo(12, 'Learn MEAN stack'));
   }
 }
