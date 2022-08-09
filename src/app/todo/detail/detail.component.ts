@@ -21,12 +21,12 @@ export class DetailComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription = this.route.params.subscribe((params) => {
-      console.log(`params`, params);
+      // console.log(`params`, params);
       const todoId = +params['id'];
       this.todo = this.todoService.getTodoById(todoId);
     });
     this.route.queryParams.subscribe((query) => {
-      console.log(`query params`, query);
+      // console.log(`query params`, query);
     });
   }
 

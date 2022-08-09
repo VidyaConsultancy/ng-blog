@@ -17,11 +17,11 @@ export class ErrorHandlerInterceptor implements HttpInterceptor {
     const authRequest = request.clone({
       withCredentials: true,
     });
-    console.log('interceptor', request);
+    // console.log('interceptor', request);
     return next.handle(authRequest).pipe(
       catchError((error: HttpErrorResponse) => {
         const errorMsg = error.message;
-        console.log(errorMsg);
+        // console.log(errorMsg);
         // show an error message to user
         // alert(errorMsg);
         return throwError(error);

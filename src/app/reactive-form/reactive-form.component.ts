@@ -69,7 +69,7 @@ export class ReactiveFormComponent implements OnInit {
     });
     // this.blogTitle = new FormControl("", [Validators.required, Validators.maxLength(30)]);
     // this.blogDescription = new FormControl("", [Validators.required, Validators.minLength(50), Validators.maxLength(500)]);
-    console.log(this.blogFormGroup);
+    // console.log(this.blogFormGroup);
 
     const formGroups = {
       valueChanges: Observable
@@ -109,7 +109,7 @@ export class ReactiveFormComponent implements OnInit {
     // event.preventDefault();
     // alert('Form submitted');
     // console.log('form values', this.blogTitle.value, this.blogDescription.value);
-    console.log('form values', this.blogFormGroup.value);
-    console.log('form array values', this.formArray.value);
+    // console.log('form values', this.blogFormGroup.value);
+    // console.log('form array values', this.formArray.value);
   }
 }

@@ -22,15 +22,15 @@ export class ItemComponent implements OnInit, AfterViewInit, OnDestroy, OnChange
   }
 
   ngOnInit(): void {
-    console.log(this.todoItemElementRef);
+    // console.log(this.todoItemElementRef);
   }
   
   ngAfterViewInit(): void {
-    console.log(this.todoItemElementRef);
+    // console.log(this.todoItemElementRef);
   }
 
   ngOnDestroy(): void {
-    console.log('I get invoked when the component is destroyed')
+    // console.log('I get invoked when the component is destroyed')
   }
 
   deleteTodo() {

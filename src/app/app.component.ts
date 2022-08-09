@@ -54,20 +54,20 @@ export class AppComponent implements OnInit {
       subscriber.next(60);
     });
     this.observerable.subscribe((value) => {
-      console.log(`Sub`, value);
+      // console.log(`Sub`, value);
     });
   }
 
   handleFormSubmit(event: any) {
-    console.log(event);
+    // console.log(event);
     event.preventDefault();
     // alert('Form submitted');
-    console.log('form values', this.blogTitle, this.blogDescription, this.user);
+    // console.log('form values', this.blogTitle, this.blogDescription, this.user);
   }
 
   onSubscribe() {
     this.observerable.subscribe((value) => {
-      console.log('Sub2', value);
+      // console.log('Sub2', value);
     })
   }
 }
