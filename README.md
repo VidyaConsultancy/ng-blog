@@ -22,3 +22,24 @@
 - Promises => Push strategy => single value
 - Generator Functions => Pull strategy => multiple value
 - Observable => Push strategy => multiple value | sync + async
+
+## Unit Testing
+**Karma** is a test runner.
+**Jasmine** is a testing library. Assertions
+**Instanbul** is code coverage lib.
+
+**TDD** Test Driven Development
+**BDD** Behaviour Driven Development
+
+__Benefits__
+- Automated
+- Confidence
+
+**Jasmine Globals**
+describe    - creates a test suit
+beforeAll   - it runs before all the test cases run.
+beforeEach  - it runs before each test case is run.
+afterAll    - it runs after all the test cases run.
+afterEach   - it runs after each test case is run.
+it          - creates a single test case
+expect      - is for single assertion

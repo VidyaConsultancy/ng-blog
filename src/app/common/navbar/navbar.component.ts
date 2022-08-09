@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { TodoService } from 'src/app/todo/services/todo.service';
 
 @Component({
-  selector: 'app-navbar',
+  selector: '#app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
