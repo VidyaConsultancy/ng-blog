@@ -35,11 +35,10 @@ describe('ReactiveFormComponent', () => {
   it('should render disabled submit button', () => {
     const debugElement = fixture.debugElement;
     const submitBtn = debugElement.query(By.css('.blogs-form button[type="submit"]'));
-    const btns = debugElement.queryAll(
-      By.css('button')
-    );
-    // console.log(btns[0]);
-    console.log(debugElement.queryAll(By.directive(FormControlName)));
+    // const btns = debugElement.queryAll(
+    //   By.css('button')
+    // );
+    // console.log(debugElement.queryAll(By.directive(FormControlName)));
     expect(submitBtn).toBeDefined();
     expect(submitBtn.attributes['disabled']).toBeDefined();
   })

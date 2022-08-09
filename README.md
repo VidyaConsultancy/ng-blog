@@ -43,3 +43,9 @@ afterAll    - it runs after all the test cases run.
 afterEach   - it runs after each test case is run.
 it          - creates a single test case
 expect      - is for single assertion
+
+
+- Test a service (without HTTPClient calls)
+- Test a component
+- Test a Model/class
+- Test ReactiveForms
