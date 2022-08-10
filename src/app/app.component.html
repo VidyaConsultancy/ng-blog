@@ -35,12 +35,12 @@
   <input type="text" [(ngModel)]="user.name" name="username"/><input type="text" [(ngModel)]="user.email" name="useremail"/><input type="text" [(ngModel)]="user.password" name="userpassword" />
 </form> -->
 
-<!-- <app-reactive-form></app-reactive-form> -->
-<div id="app-navbar">
+<!-- <app-reactive-form>I am coming from content projection</app-reactive-form> -->
+<div id="app-navbar" *appUnless="false">
 </div>
 <div>
-  <p>{{ "1000000" | currency:'INR':'code':'4.0-2' }}</p>
-  <p>{{ 1000000 | filesize:'MB' }}</p>
+  <p appBgcolor [bgColor]="'red'">{{ "1000000" | currency:'INR':'code':'4.0-2' }}</p>
+  <p appBgcolor>{{ 1000000 | filesize:'MB' }}</p>
 </div>
 <!-- <button (click)="onSubscribe()">Subscribe</button> -->
 <router-outlet></router-outlet>

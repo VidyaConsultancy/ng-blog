@@ -4,12 +4,13 @@ import { AppComponent } from './app.component';
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { FormsModule } from '@angular/forms';
 import { FilesizePipe } from './common/pipe/filesize/filesize.pipe';
+import { UnlessDirective } from './common/directives/unless/unless.directive';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule, HttpClientTestingModule, FormsModule],
-      declarations: [AppComponent, FilesizePipe],
+      declarations: [AppComponent, FilesizePipe, UnlessDirective],
     }).compileComponents();
   });
 
