@@ -3,12 +3,13 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { FormsModule } from '@angular/forms';
+import { FilesizePipe } from './common/pipe/filesize/filesize.pipe';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule, HttpClientTestingModule, FormsModule],
-      declarations: [AppComponent],
+      declarations: [AppComponent, FilesizePipe],
     }).compileComponents();
   });
 

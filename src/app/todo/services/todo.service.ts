@@ -72,6 +72,15 @@ export class TodoService {
       });
   }
 
+  public fetchAllTodosData(): Observable<Todo[]> {
+    const token = localStorage.getItem('accessToken');
+    return this.http.get<Todo[]>(this.baseAPIUrl, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  }
+
   public getAllTodos(): Observable<Todo[]> {
     return this.todos$.asObservable();
   }
@@ -88,10 +97,15 @@ export class TodoService {
     // this.todos = this.todos.filter((todo) => todo.id !== id);
   }
 
-  public getTodoById(id: number): Todo | undefined {
+  public getTodoById(id: number): Observable<Todo> {
     // const todo = this.todos.find((todo) => todo.id === id);
     // return todo;
-    return undefined;
+    const token = localStorage.getItem('accessToken');
+    return this.http.get<Todo>(`${this.baseAPIUrl}/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
   }
 
   public createTodo(todo: Partial<Todo>) {

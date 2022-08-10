@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import { NavbarComponent } from './common/navbar/navbar.component';
 import { ErrorHandlerInterceptor } from './interceptors/error-handler.interceptor';
+import { FilesizePipe } from './common/pipe/filesize/filesize.pipe';
 
 // const routes: Routes = [
 //   { path: 'watch/first', component: AppComponent },
@@ -18,7 +19,7 @@ import { ErrorHandlerInterceptor } from './interceptors/error-handler.intercepto
 // ]
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent],
+  declarations: [AppComponent, NavbarComponent, FilesizePipe],
   imports: [
     BrowserModule,
     AppRoutingModule,

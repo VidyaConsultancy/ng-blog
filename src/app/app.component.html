@@ -38,5 +38,9 @@
 <!-- <app-reactive-form></app-reactive-form> -->
 <div id="app-navbar">
 </div>
+<div>
+  <p>{{ "1000000" | currency:'INR':'code':'4.0-2' }}</p>
+  <p>{{ 1000000 | filesize:'MB' }}</p>
+</div>
 <!-- <button (click)="onSubscribe()">Subscribe</button> -->
 <router-outlet></router-outlet>

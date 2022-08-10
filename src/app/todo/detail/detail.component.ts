@@ -23,7 +23,7 @@ export class DetailComponent implements OnInit, OnDestroy {
     this.subscription = this.route.params.subscribe((params) => {
       // console.log(`params`, params);
       const todoId = +params['id'];
-      this.todo = this.todoService.getTodoById(todoId);
+      this.todoService.getTodoById(todoId).subscribe((todo) => this.todo = todo);
     });
     this.route.queryParams.subscribe((query) => {
       // console.log(`query params`, query);
