@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TodoComponent } from './todo.component';
 import { DetailComponent } from './detail/detail.component';
+import { AddComponent } from './add/add.component';
 const routes: Routes = [
   {
     path: '',
@@ -9,9 +10,13 @@ const routes: Routes = [
     children: [{ path: 'detail', component: DetailComponent }],
   },
   {
+    path: 'add',
+    component: AddComponent
+  },
+  {
     path: ":id",
     component: DetailComponent
-  }
+  },
 ];
 // app routing moudle 'todo'
 // todo routing module ''
